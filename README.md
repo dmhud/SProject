@@ -1,4 +1,26 @@
-# SProject
+# SProject: use docker
+
+## Install
+```
+apt update
+apt upgrade
+apt install git
+apt install docker
+apt install docker-compose
+```
+
+## Clone
+```
+git clone git@github.com:dmhud/SProject.git
+cd SProject
+```
+
+## Build and Run
+### on server (ubuntu 22.04)
+```
+```
+
+# SProject: manual build and run
 
 ## Install soft
 ```
