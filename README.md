@@ -5,8 +5,13 @@
 apt update
 apt upgrade
 apt install git
+
 apt install docker
 apt install docker-compose
+or
+apt install docker-ce
+
+systemctl start docker
 ```
 
 ## Clone
@@ -18,6 +23,8 @@ cd SProject
 ## Build and Run
 ### on server (ubuntu 22.04)
 ```
+docker build -t docker-app .
+docker run docker-app
 ```
 
 # SProject: manual build and run
