@@ -1,0 +1,15 @@
+﻿[requires]
+boost/1.80.0
+fmt/9.1.0
+openssl/3.0.7
+restbed/4.8
+nlohmann_json/3.11.2
+soci/4.0.3
+mosquitto/2.0.15
+
+[generators]
+cmake
+cmake_find_package 
+
+[options]
+soci:with_postgresql=True
