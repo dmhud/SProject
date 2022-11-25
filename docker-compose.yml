@@ -1,0 +1,28 @@
+﻿version: '3.8'
+services:
+  db:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+    - POSTGRES_DB=app_postgres
+    - POSTGRES_USER=app_user
+    - POSTGRES_PASSWORD=app_password
+    ports:
+      - 5433:5432
+    volumes: 
+      - ./Docker_DB/init.sql:/docker-entrypoint-initdb.d/init.sql
+#      - pgdata:/var/lib/postgresql/data
+    
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    restart: always
+    ports:
+      - 1884:1884
+    volumes:
+      - ./Docker_MQTT/config/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+
+  app:
+    build: .
+    restart: always
+    network_mode: host
+    command: ./App --app_port=54545 --app_worker_count=4 --app_change_timestamp_threshold=259200 --db_name="app_postgres" --db_user="app_user" --db_password="app_password" --db_host="127.0.0.1" --db_port=5433 --db_timeout=10 --db_pool_size=10 --mqtt_host="127.0.0.1" --mqtt_port=1884 --mqtt_timeout=60 --mqtt_topic="+/out/data"
