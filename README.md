@@ -109,3 +109,24 @@ mosquitto_pub -h localhost -t device999/out/data -m '
 ```
 
 ## Test REST methods
+### CURL from desktop (Win10)
+Change <SERVER_IP>  
+POST (Create devices):
+```
+curl -i -X POST http://<SERVER_IP>:54545/devices/dev0 -H "Accept: application/json"
+
+cd SProject\Test\
+curl -i -X POST http://<SERVER_IP>:54545/devices -H "Accept: application/json" -H "Content-Type: application/json" -d @createDevices.json
+```
+GET (Get devices):
+```
+curl -i -X GET http://<SERVER_IP>:54545/devices -H "Accept: application/json"
+curl -i -X GET http://<SERVER_IP>:54545/devices/ -H "Accept: application/json"
+curl -i -X GET http://<SERVER_IP>:54545/devices/dev0 -H "Accept: application/json"
+```
+DELETE (Delete devices):
+```
+curl -i -X DELETE http://<SERVER_IP>:54545/devices -H "Accept: application/json"
+curl -i -X DELETE http://<SERVER_IP>:54545/devices/ -H "Accept: application/json"
+curl -i -X DELETE http://<SERVER_IP>:54545/devices/dev0 -H "Accept: application/json"
+```
