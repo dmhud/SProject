@@ -135,7 +135,7 @@ POST (Create devices):
 curl -i -X POST http://<SERVER_IP>:54545/devices/dev0 -H "Accept: application/json"
 
 cd SProject\Test\
-curl -i -X POST http://<SERVER_IP>:54545/devices -H "Accept: application/json" -H "Content-Type: application/json" -d @createDevices.json
+curl -i -X POST http://<SERVER_IP>:54545/devices -H "Accept: application/json" -H "Content-Type: application/json" -d @devicesIds.json
 ```
 GET (Get devices):
 ```
