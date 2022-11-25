@@ -1,39 +1,29 @@
-# SProject: use docker
+# SProject: use docker-compose
 
 ## Install
 ```
-apt update
-apt upgrade
-apt install git
-
-apt install docker
-apt install docker-compose
-or
-apt install docker-ce
-
-systemctl start docker
+apt update && apt upgrade
+apt install git docker docker-compose
 ```
 
 ## Clone
 ```
-git clone git@github.com:dmhud/SProject.git
+git clone https://github.com/dmhud/SProject.git
 cd SProject
 ```
 
 ## Build and Run
 ### on server (ubuntu 22.04)
 ```
-docker build -t docker-app .
-docker run docker-app
+docker-compose -f docker-compose.yml up
 ```
 
 # SProject: manual build and run
 
 ## Install soft
 ```
-apt update
-apt upgrade
-apt install git cmake pip
+apt update && apt upgrade
+apt install git cmake pip 
 pip install conan
 
 apt install postgresql postgresql-contrib
