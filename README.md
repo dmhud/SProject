@@ -119,7 +119,7 @@ mosquitto_sub -h localhost -t +/out/data
 ```
 ### Publish
 ```
-mosquitto_pub -h localhost -t device999/out/data -m '
+mosquitto_pub -h localhost -p 1884 -t dev0/out/data -m '
 [{"dev_eui":"dev0","param_id":1, "value":0},
 {"dev_eui":"dev0","param_id":1,  "value":1},
 {"dev_eui":"dev0","param_id":2,  "value":12}
